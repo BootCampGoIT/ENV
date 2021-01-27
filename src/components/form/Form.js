@@ -2,8 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 
 const user = {
-  email: "",
-  password: "",
+  picture: "",
 };
 
 const Form = () => {
@@ -16,17 +15,20 @@ const Form = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    axios.post(process.env.REACT_APP_SIGNUP, state);
+    axios.post(process.env.REACT_APP_DB_PICTURE, state);
   };
   return (
     <form onSubmit={onSubmit}>
-      <input type='text' name='email' onChange={onChange} value={state.name} />
-      <input
-        type='text'
-        name='password'
-        onChange={onChange}
-        value={state.name}
-      />
+      <label>
+        URL:
+        <input
+          type='text'
+          name='picture'
+          onChange={onChange}
+          value={state.name}
+        />
+      </label>
+
       <button type='submit'>Submit</button>
     </form>
   );
